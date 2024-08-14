@@ -1,5 +1,9 @@
 # logicalEELS
-TensorFlow Framework for classification of EELS data with embedded theoretical structures
+TensorFlow Framework for classification of EELS data with embedded theoretical structures.
+
+### Research Article:
+Hollenbach, J.D., Pate, C.M., Jia, H. et al. Real-time tracking of structural evolution in 2D MXenes using theory-enhanced machine learning. Sci Rep 14, 17881 (2024)\
+<https://doi.org/10.1038/s41598-024-66902-4>
 
 ## Requirements:
 
