@@ -24,7 +24,7 @@ if __name__ == "__main__":
         packages=find_packages(),
         zip_safe=False,
         install_requires=[
-            'tensorflow',
+            'tensorflow==2.11.0',
             'numpy',
             'hyperspy',
             'scikit-learn',
