@@ -23,7 +23,7 @@ def plotSpectra(ax: plt.axes, energy: np.ndarray,
         inds = slice(0,spectra.shape[-1])
 
     for i in range(24):
-        if energy.shape[-1] == 1:
+        if spectra.shape[-1] == 1:
             # spectral dataset has been pre-processed and concatentated
             # expected shape is (13680, 240, 1)
             ax.plot(energy, spectra[i*570+300:(i+1)*570+400].mean(axis=(0)))
