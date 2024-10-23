@@ -25,6 +25,7 @@ if __name__ == "__main__":
         zip_safe=False,
         install_requires=[
             'numpy',
+            'matplotlib',
             'tensorflow==2.11.0',
             'hyperspy==1.7.3',
             'scikit-learn',
