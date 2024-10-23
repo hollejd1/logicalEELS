@@ -24,9 +24,10 @@ if __name__ == "__main__":
         packages=find_packages(),
         zip_safe=False,
         install_requires=[
-            'tensorflow==2.11.0',
             'numpy',
-            'hyperspy',
+            'matplotlib',
+            'tensorflow==2.11.0',
+            'hyperspy==1.7.3',
             'scikit-learn',
         ],
         classifiers=['Programming Language :: Python',
