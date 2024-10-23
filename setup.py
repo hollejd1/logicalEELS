@@ -29,6 +29,9 @@ if __name__ == "__main__":
             'tensorflow==2.11.0',
             'hyperspy==1.7.3',
             'scikit-learn',
+            'scipy==1.7.1',
+            'seaborn',
+            'pandas'
         ],
         classifiers=['Programming Language :: Python',
                      'Development Status :: 1 - Alpha',
