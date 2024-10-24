@@ -29,7 +29,7 @@ if __name__ == "__main__":
             'tensorflow==2.11.0',
             'hyperspy==1.7.3',
             'scikit-learn',
-            'scipy==1.6.1',
+            'scipy',
             'seaborn',
             'pandas'
         ],
