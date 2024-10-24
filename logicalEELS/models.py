@@ -312,6 +312,6 @@ def createDualVAE(params=None):
     loss_weights = dict((k, params[k]) for k in ['RECON_WEIGHT', 'KL_WEIGHT', 'CNVRG_WEIGHT'])
 
     dvae = dualVAE(encoder, vencoder, decoder, loss_weights)
-    dvae.compile(optimizer=keras.optimizers.Adam(params['LR']))
+    dvae.compile(optimizer=keras.optimizers.Adam(params['LR']), loss='mae')
 
     return dvae
