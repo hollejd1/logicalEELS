@@ -145,8 +145,10 @@ class dualVAE(keras.Model):
         self.convergence_loss_tracker = keras.metrics.Mean(name='convergence_loss')
         self.kl_loss_tracker = keras.metrics.Mean(name='kl_loss')
 
-        self.inputShape = self.X_encoder.layers[0].input_shape[0]
-        self.latentDims = self.decoder.layers[0].input_shape[0]
+        # self.inputShape = self.X_encoder.layers[0].input_shape[0]
+        # self.latentDims = self.decoder.layers[0].input_shape[0]
+        self.inputShape = self.X_encoder.layers[0].shape[0]
+        self.latentDims = self.decoder.layers[0].shape[0]
     
     @property
     def metrics(self):
