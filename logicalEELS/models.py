@@ -147,7 +147,7 @@ class dualVAE(keras.Model):
 
         # self.inputShape = self.X_encoder.layers[0].input_shape[0]
         # self.latentDims = self.decoder.layers[0].input_shape[0]
-        print(self.X_encoder.layers[0].get_config(), tf.shape(self.X_encoder.layers[0], self.X_encoder.layers[0].shape))
+        print(self.X_encoder.layers[0].get_config(), tf.shape(self.X_encoder.layers[0]))
         self.inputShape = self.X_encoder.layers[0].get_config()['batch_size'][1]
         self.latentDims = self.decoder.layers[0].get_config()['batch_size'][1]
     
