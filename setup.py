@@ -26,7 +26,7 @@ if __name__ == "__main__":
         install_requires=[
             'numpy',
             'matplotlib',
-            'tensorflow==2.11.0',
+            'tensorflow',
             'hyperspy==1.7.3',
             'scikit-learn',
             'scipy',

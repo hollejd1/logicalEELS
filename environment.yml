@@ -10,7 +10,7 @@ dependencies:
   - matplotlib
   - ipykernel
   - ipywidgets
-  - tensorflow=2.11.0
+  - tensorflow
   - hyperspy=1.7.3
   - scikit-learn
   - scipy=1.7.1
