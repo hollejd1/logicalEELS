@@ -30,11 +30,16 @@ def plotSpectra(ax: plt.axes, energy: np.ndarray,
         if spectra.shape[-1] == 1:
             # spectral dataset has been pre-processed and concatentated
             # expected shape is (13680, 240, 1)
-            ax.plot(energy, spectra[i*570+300:(i+1)*570+400].mean(axis=(0)), color=cmap[i])
+            i1, i2 = i*570+300,i*570+400
+            mean_spectrum = spectra[i1:i2].mean(axis=(0))
+            ax.plot(energy, mean_spectrum, color=cmap[i])
+            # ax.plot(energy, spectra[i*570:(i+1)*570].mean(axis=(0)), color=cmap[i])
         else:
             # spectral dataset has not been concatentated
             # expected shape is (24, 570, 1600)
-            ax.plot(energy[inds], spectra[i, 300:400, inds].mean(axis=(0)), color=cmap[i])
+            mean_spectrum = spectra[i, 300:400, inds].mean(axis=(0))
+            ax.plot(energy[inds], mean_spectrum, color=cmap[i])
+            # ax.plot(energy[inds], spectra[i, :, inds].mean(axis=(0)), color=cmap[i])
 
     ax.set_xlabel('Energy Loss (eV)')
     ax.set_ylabel('Average Counts')
