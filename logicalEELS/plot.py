@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 import numpy as np
 from .preprocess import findEdgeIndex
 
@@ -22,15 +23,18 @@ def plotSpectra(ax: plt.axes, energy: np.ndarray,
     else:
         inds = slice(0,spectra.shape[-1])
 
-    for i in range(24):
+    L = np.arange(24)
+    cmap=cm.copper(L/np.mean(L))
+
+    for i in L:
         if spectra.shape[-1] == 1:
             # spectral dataset has been pre-processed and concatentated
             # expected shape is (13680, 240, 1)
-            ax.plot(energy, spectra[i*570+300:(i+1)*570+400].mean(axis=(0)))
+            ax.plot(energy, spectra[i*570+300:(i+1)*570+400].mean(axis=(0)), color=cmap[i])
         else:
             # spectral dataset has not been concatentated
             # expected shape is (24, 570, 1600)
-            ax.plot(energy[inds], spectra[i, 300:400, inds].mean(axis=(0)))
+            ax.plot(energy[inds], spectra[i, 300:400, inds].mean(axis=(0)), color=cmap[i])
 
     ax.set_xlabel('Energy Loss (eV)')
     ax.set_ylabel('Average Counts')
