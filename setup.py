@@ -24,12 +24,12 @@ if __name__ == "__main__":
         packages=find_packages(),
         zip_safe=False,
         install_requires=[
-            'numpy',
+            'numpy==1.26.4',
             'matplotlib',
-            'tensorflow',
+            'tensorflow==2.17.0',
             'hyperspy==1.7.3',
-            'scikit-learn',
-            'scipy',
+            'scikit-learn==1.5.2',
+            'scipy==1.14.1',
             'seaborn',
             'pandas'
         ],
