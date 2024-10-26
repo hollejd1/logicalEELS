@@ -39,3 +39,38 @@ def plotSpectra(ax: plt.axes, energy: np.ndarray,
         ax.set_title(title)
 
     return ax
+
+def plot_SI_class(color, xlabels=None, ylabels=None):
+    '''
+
+    '''
+    # colors = [mpl.colormaps['viridis'](255), mpl.colormaps['viridis'](127),mpl.colormaps['viridis'](63), mpl.colormaps['viridis'](0)]
+    def get_img_loc(imgNum):
+        img_loc = np.zeros(2, dtype=int)
+        img_loc[0] = imgNum % 3
+        img_loc[1] = imgNum // 3
+        if img_loc[1]>=7:
+            img_loc[1] -= 8
+        img_loc[1] += 1
+        return img_loc
+
+    SI_color = color.reshape(-1,30,19)
+    fig, axes = plt.subplots(nrows=3, ncols=8, figsize=(15, 8), constrained_layout=False)
+
+    for i in range(SI_color.shape[0]):
+        xx,yy = get_img_loc(i)
+        axes[xx,yy].imshow(SI_color[i], vmin=0, vmax=3, cmap=mpl.colormaps['viridis'].reversed())
+        axes[xx,yy].xaxis.set_ticklabels([])
+        axes[xx,yy].xaxis.set_ticks([])
+        axes[xx,yy].yaxis.set_ticks([])
+        # axes[xx,yy].axis('off')
+
+    if xlabels!=None:
+        for i,xlabel in enumerate(xlabels):
+            axes[-1,i].set_xlabel(xlabel)
+
+    if ylabels!=None:
+        for i,ylabel in enumerate(ylabels):
+            axes[i,0].set_ylabel(ylabel)
+
+    return fig, axes
