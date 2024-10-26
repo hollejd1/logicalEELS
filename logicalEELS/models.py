@@ -229,9 +229,9 @@ class dualVAE(keras.Model):
         kl_loss = -0.5 * (1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var))
         kl_loss = tf.reduce_mean(kl_loss, axis=1)
         total_loss = tf.reduce_mean(reconstruction_loss + kl_loss)
-        self.add_metric(tf.reduce_mean(kl_loss), name='kl_loss', aggregation='mean')
-        self.add_metric(total_loss, name='total_loss', aggregation='mean')
-        self.add_metric(tf.reduce_mean(reconstruction_loss), name='reconstruction_loss', aggregation='mean')
+        # self.add_metric(tf.reduce_mean(kl_loss), name='kl_loss', aggregation='mean')
+        # self.add_metric(total_loss, name='total_loss', aggregation='mean')
+        # self.add_metric(tf.reduce_mean(reconstruction_loss), name='reconstruction_loss', aggregation='mean')
         return reconstruction
 
     def denoise(self, inputs):
