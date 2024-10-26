@@ -265,7 +265,7 @@ def createDualVAE(params=None):
 
         }
 
-    encoderInput = keras.Input(params['INPUT_SHAPE'])
+    encoderInput = keras.Input((params['LATENT_SIZE'],))
     x = keras.layers.Conv1D(filters=params['FILTER_SIZES'][0], kernel_size=params['KERNEL_SIZES'][0], strides=2, padding='same')(encoderInput)
     x = keras.layers.LeakyReLU(alpha=params['ALPHA'])(x)
     x = keras.layers.Dropout(params['DROPOUT'])(x)
@@ -280,7 +280,7 @@ def createDualVAE(params=None):
     x = keras.layers.Flatten()(x)
     z = keras.layers.Dense(params['LATENT_SIZE'], activation='linear', name='z')(x)
 
-    vencoderInput = keras.Input(params['INPUT_SHAPE'])
+    vencoderInput = keras.Input((params['LATENT_SIZE'],))
     x = keras.layers.Conv1D(filters=params['FILTER_SIZES'][0], kernel_size=params['KERNEL_SIZES'][0], strides=2, padding='same')(vencoderInput)
     x = keras.layers.LeakyReLU(alpha=params['ALPHA'])(x)
     x = keras.layers.Dropout(params['DROPOUT'])(x)
@@ -297,7 +297,7 @@ def createDualVAE(params=None):
     z_log_var = keras.layers.Dense(params['LATENT_SIZE'], activation='linear', name='z_log_var')(x)
 
 
-    decoderInput = keras.Input(params['LATENT_SIZE'])
+    decoderInput = keras.Input((params['LATENT_SIZE'],))
     x = keras.layers.Dense(15*params['FILTER_SIZES'][-1], activation='linear')(decoderInput)
     x = keras.layers.Reshape((15, params['FILTER_SIZES'][-1]))(x)
     x = keras.layers.Conv1DTranspose(filters=params['FILTER_SIZES'][2], kernel_size=params['KERNEL_SIZES'][3], activation='relu', strides=2, padding='same')(x)
