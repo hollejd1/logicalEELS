@@ -177,7 +177,8 @@ class dualVAE(keras.Model):
             Y_reconstruction = self.decoder(zy)
             reconstruction_loss = tf.reduce_sum(keras.losses.mae(y, Y_reconstruction), axis=1)
 
-            convergence_loss = tf.reduce_sum(keras.losses.mse(tf.expand_dims(zy_mean, -1), tf.expand_dims(zx, -1)), axis=1)
+            # convergence_loss = tf.reduce_sum(keras.losses.mse(tf.expand_dims(zy_mean, -1), tf.expand_dims(zx, -1)), axis=1)
+            convergence_loss = keras.losses.mse(zy_mean, zx)
 
             kl_loss = -0.5 * (1 + zy_log_var - tf.square(zy_mean) - tf.exp(zy_log_var))
             kl_loss = tf.reduce_sum(kl_loss, axis=1)
@@ -207,7 +208,8 @@ class dualVAE(keras.Model):
         Y_reconstruction = self.decoder(zy_mean)
         reconstruction_loss = tf.reduce_sum(keras.losses.mae(y, Y_reconstruction), axis=1)
 
-        convergence_loss = tf.reduce_sum(keras.losses.mse(tf.expand_dims(zy_mean, -1), tf.expand_dims(zx, -1)), axis=1)
+        # convergence_loss = tf.reduce_sum(keras.losses.mse(tf.expand_dims(zy_mean, -1), tf.expand_dims(zx, -1)), axis=1)
+        convergence_loss = keras.losses.mse(zy_mean, zx)
 
         kl_loss = -0.5 * (1 + zy_log_var - tf.square(zy_mean) - tf.exp(zy_log_var))
         kl_loss = tf.reduce_mean(kl_loss, axis=1)
