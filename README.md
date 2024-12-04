@@ -5,6 +5,11 @@ TensorFlow Framework for classification of EELS data with embedded theoretical s
 Hollenbach, J.D., Pate, C.M., Jia, H. et al. Real-time tracking of structural evolution in 2D MXenes using theory-enhanced machine learning. Sci Rep 14, 17881 (2024)\
 <https://doi.org/10.1038/s41598-024-66902-4>
 
+### Google Collab Demo
+Demo given for NordTEM hosted Workshop on machine learning methods in TEM, October 28th, 2024: 
+[Collab Link](https://colab.research.google.com/drive/1Jex2FgICZStyuW0XuRgqfE3wwS_kB9jb?usp=drive_link)
+
+
 ## Requirements:
 
 The main package requirements and the version used for testing are below:
