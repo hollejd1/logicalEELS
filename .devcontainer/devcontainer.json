@@ -25,13 +25,14 @@
     "--cap-add=SYS_ADMIN",
     "--network=host",
     "--security-opt",
-    "seccomp=unconfined"
+    "seccomp=unconfined",
+    "-v", "/opt/nvidia/nsight-systems:/opt/nvidia/nsight-systems"
   ],
-  // "remoteEnv": {
-  //   "PATH": "${containerEnv:PATH}:/usr/local/cuda/bin",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/opt/nvidia/nsight-systems/2024.2.2/bin/"
   //   "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64",
   //   "XLA_FLAGS": "--xla_gpu_cuda_data_dir=/usr/local/cuda"
-  // },
+  },
   // [optional] This command is run after the container is created. It is used
   // to install additional tools required for the development environment.
   // "updateContentCommand": "bash .devcontainer/install-dev-tools.sh",

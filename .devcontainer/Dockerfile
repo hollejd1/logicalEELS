@@ -1,24 +1,11 @@
-
-# For NVIDIA image from dockerhub, but currently using nvcr.io
-# ARG UBUNTU_VERSION="22.04"
-# ARG CUDA_VERSION="12.1.1"
-# ARG CUDNN_VERSION="8.9.2.26"
-# ARG CUDNN_V="8"
-# ARG PYTHON_VERSION="3.11"
-
-# FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_V}-devel-ubuntu${UBUNTU_VERSION} AS base
-# FROM nvcr.io/nvidia/pytorch:24.03-py3 as base
-FROM nvcr.io/nvidia/l4t-jetpack:r36.3.0 as base
+FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0 as base
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    git \
+    git pip \
+    libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt update &&  \
-#     apt -y install --no-install-recommends <your-package-list-here>
 
 # Do NOT modify UID from 1000
 # vscode updates this UID to the user building the container
@@ -35,7 +22,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Cleanup
-# RUN pip3 cache purge # cache is not enabled in the nvcr image
+# RUN pip3 cache purge
 RUN apt autoremove -y
 RUN apt clean
 
