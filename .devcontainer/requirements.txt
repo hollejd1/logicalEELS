@@ -1,0 +1,30 @@
+numpy==1.26
+pycuda==2024.1.2
+mlsocket
+# tensorrt==10.3.0 # Already included in the docker image
+--extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v61/
+tensorflow==2.16.1+nv24.08
+
+# numpy==1.22
+# future==0.18.2
+# mock==3.0.5
+# keras_preprocessing==1.1.2
+# keras_applications==1.0.8
+# gast==0.4.0
+# protobuf
+# pybind11
+# pkgconfig
+# packaging
+# h5py==3.7.0
+# testresources
+# 
+# # Additional tools for TensorRT model deployment and conversion
+# onnx
+# tf2onnx
+# pycuda
+# 
+# # Hyperspy==1.7.3
+# # Cython==0.29.36
+# # scikit-learn==0.23  # Install using: pip install scikit-learn==0.23 --no-build-isolation
+# jupyter
+# ipykernel
